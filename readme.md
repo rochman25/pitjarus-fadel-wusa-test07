@@ -8,11 +8,11 @@
 
 ![alt text](https://storage2.pitjarus.co/galderma/betest/relasi-table.png "Relasi Table")  
 
-<b>Soal A.  </b>
+<b>Soal A.  </b>  
     - buat sebuah endpoint '/visit' dengan metode post, dengan parameter {visit_id: }  
     - berdasarkan relasi table, tampilkan data sesuai contoh output yg sudah ada  
 
-<b>Soal B  </b>
+<b>Soal B  </b>  
     - buat sebuah endpoint '/product-visit' dengan metode post, dengan parameter {visit_id: }
     - pada table 'report_display_view' terdapat kolom 'json_path'
     - file json tersebut berisi array of object, dimana setiap object merepresentasikan sebuah product
@@ -20,7 +20,7 @@
     - 'object_name' dapat digunakan untuk menentukan 'id' sebuah product pada table 'product' ('object_name' = 'product.label')
     - tampilkan data sesuai contoh yg sudah diberikan
 
-<b>Soal Tambahan  </b>
+<b>Soal Tambahan  </b>  
     1. - buatlah sebuah table bernama 'report_product' yg berbentuk  
     ![alt text](https://storage2.pitjarus.co/galderma/betest/table%20report_product.png "Report Product")  
 
@@ -28,7 +28,7 @@
         - insert data ke table tersebut (data yg diinput sesuai Soal B)  
 
 
-<b>Soal Bonus: </b> 
+<b>Soal Bonus: </b>   
     - validasi menggunakan joi/yup  
     - tambahkan swagger-ui  
         
