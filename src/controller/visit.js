@@ -19,7 +19,7 @@ const getVisit = catchAsync(async (req, res) => {
     }
 })
 
-const getReportProduct = catchAsync(async (req, res) => {
+const getReportDisplay = catchAsync(async (req, res) => {
     /** logic here */
 
     /* contoh output */
@@ -51,6 +51,22 @@ const getReportProduct = catchAsync(async (req, res) => {
     res.status(200).json(expectedOutput)
 })
 
+const getReportProduct = catchAsync(async (req, res) => {
+    /** logic here */
+
+    /* contoh output */
+    const expectedOutput = {
+        visit_id: "V.26.865.22081208343138",
+        products: [
+            {product_id: 1, jumlah: 1},
+            {product_id: 2, jumlah: 2},
+            {product_id: 3, jumlah: 1},
+            {product_id: 5, jumlah: 6},
+        ]
+    }
+    res.status(200).json(expectedOutput)
+})
+
 const batchReportProduct = catchAsync(async (req, res) => {
     /** logic here */
     res.status(200).json({
@@ -63,6 +79,7 @@ const batchReportProduct = catchAsync(async (req, res) => {
 
 module.exports = {
     getVisit,
+    getReportDisplay,
     getReportProduct,
     batchReportProduct
 }
