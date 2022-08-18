@@ -22,15 +22,7 @@ Soal B
 
 Soal Tambahan
     1. - buatlah sebuah table bernama 'report_product' yg berbentuk
-        | id   | visit_id                  | product_id  | jumlah_product |
-        | --   |:-----------------------:  | -----------:| --------------:|
-        | 1    | V.26.865.22081208343138   |      1      |       10       |
-        | 2    | V.26.865.22081208343138   |      2      |       7        |
-        | 3    | V.26.865.22081208343138   |      5      |       3        |
-        | .    | .                         |      .      |       .        |
-        | .    | .                         |      .      |       .        |
-        | .    | .                         |      .      |       .        |
-        | 102  | V.66.14169.22081209093518 |      36     |       1        |
+    ![alt text](https://storage2.pitjarus.co/galderma/betest/table%20report_product.png "Report Product")
 
     2.  - buat sebuah endpoint '/batch' dengan metode post, dengan parameter {visit_id: }
         - insert data ke table tersebut (data yg diinput sesuai Soal B)
