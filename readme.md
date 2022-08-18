@@ -29,6 +29,6 @@
 
 
 <b>Soal Bonus: </b>   
-    - validasi menggunakan joi/yup  
+    - validasi menggunakan joi atau yup  
     - tambahkan swagger-ui  
         
