@@ -2,8 +2,8 @@
 <h4>Soalnya</h4>
 
 1. Test terdiri dari 2 soal,1 soal tambahan, 1 soal bonus
-2. Untuk mengerjakan, silahkan fork repository 'https://github.com/kneth90/pitjarus-fadel-wusa-test07' branch 'main'  
-3. Anda akan dapat mendownload dump mysql di 'https://storage2.pitjarus.co/galderma/betest/dump-galderman.sql'  
+2. Untuk mengerjakan, silahkan fork repository [ini](https://github.com/kneth90/pitjarus-fadel-wusa-test07) branch 'main'  
+3. Anda akan dapat mendownload dump mysql di [sini](https://storage2.pitjarus.co/galderma/betest/dump-galderman.sql)  
 4. Relasi antar table yang ada sebagai berikut  
 
 ![alt text](https://storage2.pitjarus.co/galderma/betest/relasi-table.png "Relasi Table")  
