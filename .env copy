@@ -1,0 +1,7 @@
+PORT=9999
+NODE_ENV=test
+
+DB_TEST_USERNAME=root
+DB_TEST_PASSWORD=secret
+DB_TEST_HOST=localhost
+DB_TEST_DATABASE=galderman
