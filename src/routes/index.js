@@ -9,7 +9,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/visit/:visit_id' , visitController.getVisit)
-router.post('/visit' , visitController.getReportProduct)
+router.post('/visit' , visitController.getReportDisplay)
+router.post('/product-visit' , visitController.getReportProduct)
 router.post('/batch' , visitController.batchReportProduct)
 
 
