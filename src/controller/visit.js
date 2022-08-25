@@ -1,6 +1,7 @@
 const catchAsync = require('../util/catchAsync');
 const db = require('../models');
 const report_display_service = require('../services/report_display');
+const report_product_service = require('../services/report_product');
 
 const getVisit = catchAsync(async (req, res) => {
     const {visit_id: visitId} = req.params
@@ -22,24 +23,20 @@ const getVisit = catchAsync(async (req, res) => {
 const getReportDisplay = catchAsync(async (req, res) => {
     /** logic here */
     const {visit_id: visitId} = req.body;
-    const v = await report_display_service.getResVisitDetail(visitId);
-    res.status(200).json(v);
+    const output = await report_display_service.getResVisitDetail(visitId);
+    res.status(200).json(output);
 })
 
 const getReportProduct = catchAsync(async (req, res) => {
     /** logic here */
-
+    const {visit_id: visitId} = req.body;
+    const productReport = await report_product_service.getResReportProduct(visitId);
     /* contoh output */
-    const expectedOutput = {
-        visit_id: "V.26.865.22081208343138",
-        products: [
-            {product_id: 1, jumlah: 1},
-            {product_id: 2, jumlah: 2},
-            {product_id: 3, jumlah: 1},
-            {product_id: 5, jumlah: 6},
-        ]
+    const output = {
+        visit_id: visitId,
+        products: productReport
     }
-    res.status(200).json(expectedOutput)
+    res.status(200).json(output);
 })
 
 const batchReportProduct = catchAsync(async (req, res) => {
