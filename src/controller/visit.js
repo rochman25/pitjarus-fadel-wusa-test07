@@ -2,6 +2,7 @@ const catchAsync = require('../util/catchAsync');
 const db = require('../models');
 const report_display_service = require('../services/report_display');
 const report_product_service = require('../services/report_product');
+const Joi = require('joi');
 
 const getVisit = catchAsync(async (req, res) => {
     const {visit_id: visitId} = req.params
@@ -23,6 +24,12 @@ const getVisit = catchAsync(async (req, res) => {
 const getReportDisplay = catchAsync(async (req, res) => {
     /** logic here */
     const {visit_id: visitId} = req.body;
+    const validate = schema.validate({visit_id: visitId});
+    if(validate.error){
+        res.status(400).json({
+            message: validate.error
+        });
+    }
     const output = await report_display_service.getResVisitDetail(visitId);
     res.status(200).json(output);
 })
@@ -30,6 +37,12 @@ const getReportDisplay = catchAsync(async (req, res) => {
 const getReportProduct = catchAsync(async (req, res) => {
     /** logic here */
     const {visit_id: visitId} = req.body;
+    const validate = schema.validate({visit_id: visitId});
+    if(validate.error){
+        res.status(400).json({
+            message: validate.error
+        });
+    }
     const productReport = await report_product_service.getResReportProduct(visitId);
     /* contoh output */
     const output = {
@@ -42,6 +55,12 @@ const getReportProduct = catchAsync(async (req, res) => {
 const batchReportProduct = catchAsync(async (req, res) => {
     /** logic here */
     const {visit_id: visitId} = req.body;
+    const validate = schema.validate({visit_id: visitId});
+    if(validate.error){
+        res.status(400).json({
+            message: validate.error
+        });
+    }
     const productReport = await report_product_service.getResReportProduct(visitId);
     const dataArr = productReport.map(item => {
         return {
@@ -55,7 +74,12 @@ const batchReportProduct = catchAsync(async (req, res) => {
         status: "OK",
         message: "batch success"
     })
-})
+});
+
+
+const schema = Joi.object({
+    visit_id: Joi.string().max(50).required()
+});
 
 
 
