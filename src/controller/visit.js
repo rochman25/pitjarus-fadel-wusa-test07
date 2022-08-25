@@ -41,6 +41,16 @@ const getReportProduct = catchAsync(async (req, res) => {
 
 const batchReportProduct = catchAsync(async (req, res) => {
     /** logic here */
+    const {visit_id: visitId} = req.body;
+    const productReport = await report_product_service.getResReportProduct(visitId);
+    const dataArr = productReport.map(item => {
+        return {
+            visit_id: visitId,
+            product_id: item.product_id,
+            jumlah_product: item.jumlah
+        }
+    });
+    db.report_product.bulkCreate(dataArr);
     res.status(200).json({
         status: "OK",
         message: "batch success"
