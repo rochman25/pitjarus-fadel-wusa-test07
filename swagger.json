@@ -1,0 +1,253 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API Documentation for Galderman API",
+        "version": "1.0.0",
+        "title": "Galderman API"
+    },
+    "schemes": [
+        "http"
+    ],
+    "host": "127.0.0.1:9999",
+    "basePath": "/",
+    "paths": {
+        "/visit/{visit_id}": {
+            "get": {
+                "summary": "Get Visit Data",
+                "description": "Get report display by visit id",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/visitResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidVisitResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/visit": {
+            "post": {
+                "summary": "Get Report Display by visit id",
+                "description": "Get Report Display by visit id",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "visit_id",
+                        "in": "body",
+                        "description": "visit id that needs to be get display",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "visit_id": {
+                                    "type": "object",
+                                    "$ref": "#/definitions/VisitId"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/displayVisit"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/product-visit": {
+            "post": {
+                "summary": "Get Report Product by visit id",
+                "description": "Get Report Product by visit id",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "visit_id",
+                        "in": "body",
+                        "description": "visit id that needs to be get display",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/productReport"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/batch": {
+            "post": {
+                "summary": "Insert the report product to database",
+                "description": "Insert the report product to database",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "visit_id",
+                        "in": "body",
+                        "description": "visit id that needs to be batch to database",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful batch",
+                        "schema": {
+                            "$ref": "#/definitions/batch"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "visitResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "visit_id": {
+                    "type": "string"
+                },
+                "store_id": {
+                    "type": "integer"
+                },
+                "surveyor_id": {
+                    "type": "integer"
+                },
+                "category_id": {
+                    "type": "integer"
+                },
+                "json_path": {
+                    "type": "string"
+                }
+            }
+        },
+        "displayVisit": {
+            "type": "object",
+            "properties": {
+                "visit_id": {
+                    "type": "string"
+                },
+                "store_id": {
+                    "type": "integer"
+                },
+                "store_name": {
+                    "type": "string"
+                },
+                "surveyor_id": {
+                    "type": "integer"
+                },
+                "surveyor_name": {
+                    "type": "string"
+                },
+                "displays": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "category_id": {
+                                "type": "integer"
+                            },
+                            "category_name": {
+                                "type": "integer"
+                            },
+                            "json_paths": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "path": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "productReport": {
+            "type": "object",
+            "properties": {
+                "visit_id": {
+                    "type": "string"
+                },
+                "products": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "product_id": {
+                                "type": "integer"
+                            },
+                            "jumlah": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "batch": {
+            "type":"object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "VisitId": {
+            "visit_id": {
+                "type": "string"
+            }
+        },
+        "InvalidVisitResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
